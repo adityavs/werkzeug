@@ -55,7 +55,7 @@ Since version 0.10, there are two backends the reloader supports: ``stat`` and
   drain a laptop's battery.
 
 - The ``watchdog`` backend uses filesystem events, and is much faster than
-  ``stat``. It requires the `watchdog <https://pypi.python.org/pypi/watchdog>`_
+  ``stat``. It requires the `watchdog <https://pypi.org/project/watchdog/>`_
   module to be installed. The recommended way to achieve this is to add
   ``Werkzeug[watchdog]`` to your requirements file.
 
@@ -72,11 +72,16 @@ polling and ``'watchdog'`` forces it to the watchdog backend.
     handled by the stat reloader for performance reasons. The watchdog reloader
     monitors such files too.
 
+
 Colored Logging
 ---------------
-Werkzeug is able to color the output of request logs when ran from a terminal, just install the `termcolor
-<https://pypi.python.org/pypi/termcolor>`_ package. Windows users need to install `colorama
-<https://pypi.python.org/pypi/colorama>`_ in addition to termcolor for this to work. 
+
+The development server can optionally highlight the request logs in
+different colors based on the status code. Install `Click`_ to enable
+this feature.
+
+.. _Click: https://pypi.org/project/click/
+
 
 Virtual Hosts
 -------------
@@ -151,7 +156,7 @@ preferring ipv6, you will be unable to connect to your server.  In that
 situation, you can either remove the localhost entry for ``::1`` or
 explicitly bind the hostname to an ipv4 address (`127.0.0.1`)
 
-.. _hosts file: http://en.wikipedia.org/wiki/Hosts_file
+.. _hosts file: https://en.wikipedia.org/wiki/Hosts_file
 
 SSL
 ---
@@ -224,4 +229,15 @@ certificate each time the server is reloaded.  Adhoc certificates are
 discouraged because modern browsers do a bad job at supporting them for
 security reasons.
 
-This feature requires the pyOpenSSL library to be installed.
+This feature requires the cryptography library to be installed.
+
+
+Unix Sockets
+------------
+
+The dev server can bind to a Unix socket instead of a TCP socket.
+:func:`run_simple` will bind to a Unix socket if the ``hostname``
+parameter starts with ``'unix://'``. ::
+
+    from werkzeug.serving import run_simple
+    run_simple('unix://example.sock', 0, app)

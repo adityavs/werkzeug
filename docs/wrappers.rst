@@ -150,20 +150,9 @@ and :class:`BaseResponse` classes and implement all the mixins Werkzeug provides
 
 .. autoclass:: Response
 
-.. autoclass:: AcceptMixin
-   :members:
 
-.. autoclass:: AuthorizationMixin
-   :members:
-
-.. autoclass:: ETagRequestMixin
-   :members:
-
-.. autoclass:: ETagResponseMixin
-   :members:
-
-.. autoclass:: ResponseStreamMixin
-   :members:
+Common Descriptors
+------------------
 
 .. autoclass:: CommonRequestDescriptorsMixin
    :members:
@@ -171,8 +160,71 @@ and :class:`BaseResponse` classes and implement all the mixins Werkzeug provides
 .. autoclass:: CommonResponseDescriptorsMixin
    :members:
 
+
+Response Stream
+---------------
+
+.. autoclass:: ResponseStreamMixin
+   :members:
+
+
+Accept
+------
+
+.. autoclass:: AcceptMixin
+   :members:
+
+
+Authentication
+--------------
+
+.. autoclass:: AuthorizationMixin
+   :members:
+
 .. autoclass:: WWWAuthenticateMixin
    :members:
 
+
+CORS
+----
+
+.. autoclass:: werkzeug.wrappers.cors.CORSRequestMixin
+    :members:
+
+.. autoclass:: werkzeug.wrappers.cors.CORSResponseMixin
+    :members:
+
+
+ETag
+----
+
+.. autoclass:: ETagRequestMixin
+   :members:
+
+.. autoclass:: ETagResponseMixin
+   :members:
+
+
+User Agent
+----------
+
 .. autoclass:: UserAgentMixin
    :members:
+
+
+Extra Mixin Classes
+===================
+
+These mixins are not included in the default :class:`Request` and
+:class:`Response` classes. They provide extra behavior that needs to be
+opted into by creating your own subclasses::
+
+    class Response(JSONMixin, BaseResponse):
+        pass
+
+
+JSON
+----
+
+.. autoclass:: werkzeug.wrappers.json.JSONMixin
+    :members:

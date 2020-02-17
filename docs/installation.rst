@@ -8,7 +8,7 @@ Python Version
 --------------
 
 We recommend using the latest version of Python 3. Werkzeug supports
-Python 3.4 and newer and Python 2.7.
+Python 3.5 and newer and Python 2.7.
 
 
 Dependencies
@@ -26,14 +26,14 @@ detect and use them if you install them.
 * `SimpleJSON`_ is a fast JSON implementation that is compatible with
   Python's ``json`` module. It is preferred for JSON operations if it is
   installed.
-* `termcolor`_ provides request log highlighting when using the
+* `Click`_ provides request log highlighting when using the
   development server.
 * `Watchdog`_ provides a faster, more efficient reloader for the
   development server.
 
-.. _SimpleJSON: https://simplejson.readthedocs.io/
-.. _termcolor: https://pypi.org/project/termcolor/
-.. _Watchdog: https://pythonhosted.org/watchdog/
+.. _SimpleJSON: https://simplejson.readthedocs.io/en/latest/
+.. _Click: https://pypi.org/project/click/
+.. _Watchdog: https://pypi.org/project/watchdog/
 
 
 Virtual environments
@@ -169,5 +169,5 @@ On Windows, as an administrator:
 
 Now you can continue to :ref:`install-create-env`.
 
-.. _virtualenv: https://virtualenv.pypa.io/
+.. _virtualenv: https://virtualenv.pypa.io/en/latest/
 .. _get-pip.py: https://bootstrap.pypa.io/get-pip.py
